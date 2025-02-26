@@ -1,0 +1,88 @@
+import { StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+    container:{
+        height:"100%",
+        width:"100%",
+        backgroundColor:"#fff",
+    },
+    header:{
+        width: "100%",
+        height: 65,
+        backgroundColor:"white",
+        flexDirection:"row",
+        alignItems:"center",
+        paddingHorizontal:"5%",
+        marginTop:"5%"
+    },
+    backButton:{
+        width:35,
+        height:35,
+        borderRadius:20,
+        backgroundColor:"#f2f2f2",
+        alignItems:"center",
+        justifyContent:"center"
+    },
+    headerText:{
+        fontSize:18,
+        fontWeight:"bold",
+        left:"5%"
+    },
+    guestDetails:{
+        width:"100%",
+        padding:"5%"
+    },
+    passType:{
+        width:"100%",
+        paddingHorizontal:"5%",
+        marginTop:"5%"
+    },
+    title:{
+        fontSize:12,
+        color:"gray"
+    },
+    passName:{
+        fontSize:16,
+        color:"#000",
+        marginTop:"1%"
+    },
+    divider:{
+        width:"100%",
+        height:0.5,
+        backgroundColor:"#d3d3d3",
+        marginTop:"6%"
+    },
+    padder:{
+        height:"3%"
+    },
+    datePickers:{
+        width:"100%",
+        flexDirection:"row",
+        paddingHorizontal:"4%"
+    },
+    subPicker:{
+        width:"50%"
+    },
+    submitButton:{
+        width:"100%",
+        alignItems:"center",
+        justifyContent:"center",
+        paddingHorizontal:"5%",
+        top:"10%",
+        paddingBottom:5
+    },
+    button:{
+        width:"100%",
+        height:55,
+        borderRadius:8,
+        backgroundColor:"#000",
+        alignItems:"center",
+        justifyContent:"center",
+    },
+    buttonText:{
+        color:"white",
+        fontSize:18
+    }
+});
+
+export default styles
