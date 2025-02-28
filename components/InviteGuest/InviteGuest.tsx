@@ -2,20 +2,23 @@ import { View, Text, TouchableOpacity, ToastAndroid } from 'react-native';
 import React, { useState } from 'react';
 import styles from './style';
 import InputBox from '../InputBox/InputBox';
+import Calender from '../Calender/Calender';
 
 const InviteGuest = () => {
     const [location, setLocation] = useState('');
-    const [startDate, setStartDate] = useState('');
+    const [startDate, setStartDate] = useState<Date|''>('');
     const [startTime, setStartTime] = useState('');
     const [endDate, setEndDate] = useState('');
     const [endTime, setEndTime] = useState('');
     const [guestName, setGuestName] = useState('');
     const [guestEmail, setGuestEmail] = useState('');
     const [guestPhone, setGuestPhone] = useState('');
+    const [showCal, setShowCal] = useState(true)
 
     const isFormValid = location && startDate && startTime && endDate && endTime && guestName && guestPhone;
 
     const handlePress = () => {
+        setShowCal(true)
         console.log('Dummy function triggered');
     };
 
@@ -33,6 +36,13 @@ const InviteGuest = () => {
             ToastAndroid.show('Guest Created', ToastAndroid.SHORT);
         }
     };
+
+    const loadDate =(date:Date,title:string)=>{
+        if(title == 'Start Date' && date){
+            setStartDate(date)
+            setShowCal(false)
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -66,7 +76,7 @@ const InviteGuest = () => {
                     <InputBox label='End Time' isButton={true} sub={true} onPress={handlePress} value={endTime} onChangeText={setEndTime} />
                 </View>
             </View>
-            <View style={{paddingHorizontal:"5%"}}>
+            <View style={{ paddingHorizontal: "5%" }}>
                 <View style={styles.divider} />
 
             </View>
@@ -80,6 +90,10 @@ const InviteGuest = () => {
                     <Text style={styles.buttonText}>Submit</Text>
                 </TouchableOpacity>
             </View>
+            {
+                showCal && <Calender title={"Start Date"} onDateSelect={loadDate} onClose={() => { setShowCal(false) }} />
+
+            }
         </View>
     );
 };
